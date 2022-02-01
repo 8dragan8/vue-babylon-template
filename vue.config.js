@@ -12,8 +12,12 @@ module.exports = {
       path.resolve(__dirname, "./src/babylonApp/meshes")
     );
     config.resolve.alias.set(
+      "@bCamera",
+      path.resolve(__dirname, "./src/babylonApp/cameras")
+    );
+    config.resolve.alias.set(
       "@bHelper",
-      path.resolve(__dirname, "./src/babylonApp/heleperClasses")
+      path.resolve(__dirname, "./src/babylonApp/helperClasses")
     );
     config.resolve.alias.set(
       "@bMethods",

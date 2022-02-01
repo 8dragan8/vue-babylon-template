@@ -12,10 +12,13 @@
                 "./src/babylonApp/*"
             ],
             "@bMesh/*": [
-                "./src/babylonApp/meshes/*"
+                "src/babylonApp/meshes/*"
+            ],
+            "@bCamera/*": [
+                "src/babylonApp/cameras/*"
             ],
             "@bHelper/*": [
-                "./src/babylonApp/heleperClasses/*"
+                "./src/babylonApp/helperClasses/*"
             ],
             "@bMethods/*": [
                 "./src/methods/*"

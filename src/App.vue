@@ -1,17 +1,42 @@
 <template>
-  <div id="app"><Babylon /></div>
+  <div id="app">
+    <canvas
+      ref="babylonCanvas"
+      :width="canvasSize.width"
+      :height="canvasSize.height"
+    />
+  </div>
 </template>
 
 <script>
-import Babylon from "./components/Babylon.vue";
+import BabylonApp from "@b";
+import handleResize from "./methods/resize";
 
 export default {
   name: "App",
-  components: {
-    Babylon,
-  },
+  components: {},
   data() {
-    return {};
+    return {
+      showSpinner: false,
+      babylonCanvas: null,
+      canvasSize: {
+        width: 800,
+        height: 800,
+      },
+    };
+  },
+  mounted() {
+    this.babylonCanvas = this.$refs.babylonCanvas;
+
+    window.addEventListener("resize", () => {
+      this.canvasSize = handleResize();
+    });
+
+    this.canvasSize = handleResize();
+
+    if (this.babylonCanvas) {
+      this.bApp = new BabylonApp(this.babylonCanvas);
+    }
   },
 };
 </script>
@@ -33,5 +58,9 @@ body {
   width: 100%;
   height: 100%;
   position: relative;
+}
+canvas {
+  width: 100%;
+  height: 100%;
 }
 </style>
